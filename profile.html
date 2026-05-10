@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - LifeCare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="profile-body">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">LifeCare</div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Back to Dashboard</a></li>
+                <li><button class="logout-btn" id="logoutBtn">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <div class="profile-card">
+            <h1>My Profile</h1>
+            
+            <div class="profile-section">
+                <h2>Personal Information</h2>
+                
+                <div class="form-group">
+                    <label for="profileName">Full Name</label>
+                    <input type="text" id="profileName" class="profile-input" placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="profileNickname">Nickname (Display Name)</label>
+                    <input type="text" id="profileNickname" class="profile-input" placeholder="Enter your nickname">
+                </div>
+
+                <div class="form-group">
+                    <label for="profileEmail">Email</label>
+                    <input type="email" id="profileEmail" class="profile-input" placeholder="Enter your email" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="profileRole">Role</label>
+                    <select id="profileRole" class="profile-input">
+                        <option value="Nursing Student">Nursing Student</option>
+                        <option value="Student">Student</option>
+                        <option value="Other Professional">Other Professional</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="profilePhone">Phone Number</label>
+                    <input type="tel" id="profilePhone" class="profile-input" placeholder="Enter your phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="profileBio">Bio</label>
+                    <textarea id="profileBio" class="profile-input" placeholder="Tell us about yourself..."></textarea>
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <h2>Preferences</h2>
+                
+                <div class="form-group">
+                    <label for="dailyGoal">Water Intake Daily Goal (ml)</label>
+                    <input type="number" id="dailyGoal" class="profile-input" placeholder="2000" value="2000" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="sleepGoal">Sleep Goal (hours)</label>
+                    <input type="number" id="sleepGoal" class="profile-input" placeholder="8" value="8" step="0.5" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="budgetLimit">Monthly Budget Limit</label>
+                    <input type="number" id="budgetLimit" class="profile-input" placeholder="0" value="0" step="0.01" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="notificationPref">
+                        <input type="checkbox" id="notificationPref" checked>
+                        Enable Notifications
+                    </label>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="save-button" onclick="saveProfile()">Save Changes</button>
+                <button class="cancel-button" onclick="cancelProfile()">Cancel</button>
+            </div>
+
+            <div id="successMessage" class="success-message" style="display: none;">Profile updated successfully!</div>
+            <div id="errorMsg" class="error-message" style="display: none;">An error occurred. Please try again.</div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
