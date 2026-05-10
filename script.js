@@ -569,13 +569,13 @@ function setGoal() {
 
 function getSelfCareRecommendations() {
     const recommendations = [
-        '💆 Take a 10-minute break and stretch',
-        '🎵 Listen to your favorite relaxing music',
-        '🚶 Take a short walk outside',
-        '🧘 Try a quick meditation session',
-        '☕ Enjoy a warm cup of tea',
-        '📚 Read something uplifting',
-        '🎨 Do a creative activity'
+        ' Take a 10-minute break and stretch',
+        ' Listen to your favorite relaxing music',
+        ' Take a short walk outside',
+        ' Try a quick meditation session',
+        ' Enjoy a warm cup of tea',
+        ' Read something uplifting',
+        ' Do a creative activity'
     ];
     
     const random = recommendations[Math.floor(Math.random() * recommendations.length)];
