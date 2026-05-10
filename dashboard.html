@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - LifeCare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">LifeCare</div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="user-info">
+                    <span id="userGreeting">Hi, User</span>
+                    <a href="profile.html" class="profile-link">Profile</a>
+                </li>
+                <li><button class="logout-btn" id="logoutBtn">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#" class="sidebar-link active" data-feature="dashboard">Dashboard</a></li>
+                <li><a href="#" class="sidebar-link" data-feature="academic">Smart Academic Planner</a></li>
+                <li><a href="#" class="sidebar-link" data-feature="health">Health & Wellness</a></li>
+                <li><a href="#" class="sidebar-link" data-feature="mental">Mental Health Support</a></li>
+                <li><a href="#" class="sidebar-link" data-feature="daily">Daily Life Management</a></li>
+                <li><a href="#" class="sidebar-link" data-feature="support">Student Support</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Overview -->
+            <section id="dashboardOverview" class="feature-section active">
+                <h1>Dashboard Overview</h1>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card" data-feature="academic">
+                        <h3>📚 Smart Academic Planner</h3>
+                        <p>Manage classes, tasks, and deadlines</p>
+                        <button class="card-button">View Details</button>
+                    </div>
+                    <div class="dashboard-card" data-feature="health">
+                        <h3>❤️ Health & Wellness</h3>
+                        <p>Track water, sleep, and activity</p>
+                        <button class="card-button">View Details</button>
+                    </div>
+                    <div class="dashboard-card" data-feature="mental">
+                        <h3>🧠 Mental Health Support</h3>
+                        <p>Mood tracking and stress relief</p>
+                        <button class="card-button">View Details</button>
+                    </div>
+                    <div class="dashboard-card" data-feature="daily">
+                        <h3>📋 Daily Life Management</h3>
+                        <p>Habits, budget, and notes</p>
+                        <button class="card-button">View Details</button>
+                    </div>
+                    <div class="dashboard-card" data-feature="support">
+                        <h3>👥 Student Support System</h3>
+                        <p>Community and encouragement</p>
+                        <button class="card-button">View Details</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Smart Academic Planner -->
+            <section id="academicFeature" class="feature-section">
+                <h2>Smart Academic Planner</h2>
+                <div class="feature-content">
+                    <div class="subsection">
+                        <h3>Class and Clinical Schedule</h3>
+                        <div class="schedule-container">
+                            <input type="date" id="scheduleDate" class="input-field">
+                            <textarea id="scheduleNote" class="input-field" placeholder="Add class or clinical schedule..."></textarea>
+                            <button class="action-button" onclick="addSchedule()">Add Schedule</button>
+                            <ul id="scheduleList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Task and Assignment Tracker</h3>
+                        <div class="task-container">
+                            <input type="text" id="taskName" class="input-field" placeholder="Task name">
+                            <input type="date" id="taskDue" class="input-field">
+                            <select id="taskPriority" class="input-field">
+                                <option value="High">High Priority</option>
+                                <option value="Medium">Medium Priority</option>
+                                <option value="Low">Low Priority</option>
+                            </select>
+                            <button class="action-button" onclick="addTask()">Add Task</button>
+                            <ul id="taskList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Examination Countdown</h3>
+                        <div class="exam-container">
+                            <input type="text" id="examName" class="input-field" placeholder="Exam name">
+                            <input type="datetime-local" id="examDate" class="input-field">
+                            <button class="action-button" onclick="addExam()">Add Exam</button>
+                            <div id="countdownList" class="countdown-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Health and Wellness Monitoring -->
+            <section id="healthFeature" class="feature-section">
+                <h2>Health and Wellness Monitoring</h2>
+                <div class="feature-content">
+                    <div class="subsection">
+                        <h3>Water Intake Tracker</h3>
+                        <div class="health-container">
+                            <input type="number" id="waterIntake" class="input-field" placeholder="Amount in ml" min="0">
+                            <button class="action-button" onclick="addWaterIntake()">Log Water</button>
+                            <p id="waterTotal" class="health-display">Total today: 0 ml</p>
+                            <ul id="waterList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Sleep Monitoring</h3>
+                        <div class="health-container">
+                            <input type="number" id="sleepHours" class="input-field" placeholder="Hours of sleep" step="0.5" min="0">
+                            <button class="action-button" onclick="addSleepLog()">Log Sleep</button>
+                            <p id="sleepAvg" class="health-display">Average sleep: 0 hrs</p>
+                            <ul id="sleepList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Medication Reminders</h3>
+                        <div class="health-container">
+                            <input type="text" id="medName" class="input-field" placeholder="Medication name">
+                            <input type="text" id="medDose" class="input-field" placeholder="Dose">
+                            <input type="time" id="medTime" class="input-field">
+                            <button class="action-button" onclick="addMedication()">Add Medication</button>
+                            <ul id="medList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Meal and Nutrition Logs</h3>
+                        <div class="health-container">
+                            <textarea id="mealDesc" class="input-field" placeholder="What did you eat?"></textarea>
+                            <input type="number" id="mealCalories" class="input-field" placeholder="Calories (optional)" min="0">
+                            <button class="action-button" onclick="addMealLog()">Log Meal</button>
+                            <ul id="mealList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Physical Activity Tracking</h3>
+                        <div class="health-container">
+                            <input type="text" id="activityType" class="input-field" placeholder="Activity type (e.g., jogging)">
+                            <input type="number" id="activityDuration" class="input-field" placeholder="Duration (minutes)" min="0">
+                            <button class="action-button" onclick="addActivity()">Log Activity</button>
+                            <ul id="activityList" class="item-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mental Health and Stress Support -->
+            <section id="mentalFeature" class="feature-section">
+                <h2>Mental Health and Stress Support</h2>
+                <div class="feature-content">
+                    <div class="subsection">
+                        <h3>Mood Tracker</h3>
+                        <div class="mental-container">
+                            <select id="moodSelect" class="input-field">
+                                <option value="">Select your mood</option>
+                                <option value="Very Happy">Very Happy 😄</option>
+                                <option value="Happy">Happy 😊</option>
+                                <option value="Neutral">Neutral 😐</option>
+                                <option value="Sad">Sad 😔</option>
+                                <option value="Stressed">Stressed 😰</option>
+                            </select>
+                            <button class="action-button" onclick="logMood()">Log Mood</button>
+                            <ul id="moodList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Stress Level Check-in</h3>
+                        <div class="mental-container">
+                            <input type="range" id="stressLevel" class="stress-slider" min="1" max="10" value="5">
+                            <p id="stressDisplay" class="health-display">Stress Level: 5/10</p>
+                            <button class="action-button" onclick="logStress()">Record Stress Level</button>
+                            <ul id="stressList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Guided Breathing Exercise</h3>
+                        <div class="mental-container">
+                            <div class="breathing-circle" id="breathingCircle"></div>
+                            <p id="breathingText" class="breathing-text">Ready to begin?</p>
+                            <button class="action-button" onclick="startBreathingExercise()">Start 5-Minute Exercise</button>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Daily Journal</h3>
+                        <div class="mental-container">
+                            <p class="journal-prompt" id="journalPrompt">What made you stressed today?</p>
+                            <textarea id="journalEntry" class="input-field" placeholder="Write your thoughts here..."></textarea>
+                            <button class="action-button" onclick="saveJournalEntry()">Save Entry</button>
+                            <ul id="journalList" class="item-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Daily Life Management Tools -->
+            <section id="dailyFeature" class="feature-section">
+                <h2>Daily Life Management Tools</h2>
+                <div class="feature-content">
+                    <div class="subsection">
+                        <h3>Habit Tracker</h3>
+                        <div class="daily-container">
+                            <input type="text" id="habitName" class="input-field" placeholder="Habit name (e.g., Exercise)">
+                            <input type="number" id="habitTarget" class="input-field" placeholder="Daily target" min="1">
+                            <button class="action-button" onclick="addHabit()">Add Habit</button>
+                            <ul id="habitList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Budget and Expense Tracker</h3>
+                        <div class="daily-container">
+                            <select id="expCategory" class="input-field">
+                                <option value="">Select category</option>
+                                <option value="Groceries">Groceries</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Leisure">Leisure</option>
+                                <option value="Others">Others</option>
+                            </select>
+                            <input type="number" id="expAmount" class="input-field" placeholder="Amount" min="0" step="0.01">
+                            <button class="action-button" onclick="addExpense()">Log Expense</button>
+                            <div id="budgetDisplay" class="budget-display"></div>
+                            <ul id="expenseList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Personal Notes and Checklist</h3>
+                        <div class="daily-container">
+                            <input type="text" id="noteName" class="input-field" placeholder="Add a note or checklist item">
+                            <button class="action-button" onclick="addNote()">Add Note</button>
+                            <ul id="noteList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Emergency Contacts</h3>
+                        <div class="daily-container">
+                            <input type="text" id="contactName" class="input-field" placeholder="Contact name">
+                            <input type="text" id="contactPhone" class="input-field" placeholder="Phone number">
+                            <input type="text" id="contactRelation" class="input-field" placeholder="Relationship">
+                            <button class="action-button" onclick="addContact()">Add Contact</button>
+                            <ul id="contactList" class="item-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Student Support System -->
+            <section id="supportFeature" class="feature-section">
+                <h2>Student Support System</h2>
+                <div class="feature-content">
+                    <div class="subsection">
+                        <h3>Peer Support and Community</h3>
+                        <div class="support-container">
+                            <p class="support-message">Connect with peers based on your interests and academic goals.</p>
+                            <input type="text" id="peerInterest" class="input-field" placeholder="What's your interest?">
+                            <button class="action-button" onclick="connectPeer()">Find Peers</button>
+                            <ul id="peerList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Academic Encouragement</h3>
+                        <div class="support-container">
+                            <p class="support-message" id="encouragementMsg">Keep going! You're doing great! 🌟</p>
+                            <input type="text" id="goalName" class="input-field" placeholder="Set your academic goal">
+                            <button class="action-button" onclick="setGoal()">Set Goal</button>
+                            <ul id="goalList" class="item-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Self-Care Recommendations</h3>
+                        <div class="support-container">
+                            <p class="support-message" id="selfCareMsg">Based on your stress level, try taking a break!</p>
+                            <button class="action-button" onclick="getSelfCareRecommendations()">Get Recommendations</button>
+                            <div id="selfCareList" class="item-list"></div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Personalized Reminders</h3>
+                        <div class="support-container">
+                            <input type="text" id="reminderText" class="input-field" placeholder="Reminder text">
+                            <input type="time" id="reminderTime" class="input-field">
+                            <button class="action-button" onclick="addReminder()">Set Reminder</button>
+                            <ul id="reminderList" class="item-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
